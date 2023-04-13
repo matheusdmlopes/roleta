@@ -6,6 +6,7 @@ class App extends Component {
   state = {
     array: ['annie', 'ashe', 'janna', 'karma', 'leona', 'lulu', 'lux', 'morgana', 'nami', 'rakan', 'seraphine', 'sona', 'soraka', 'yuumi'],
     index: 0,
+    name: 'circle'
   }
 
   randomArray = () => {
@@ -15,14 +16,24 @@ class App extends Component {
     })
   }
 
+  spinWheel = () => {
+    this.setState({
+      name: 'circle start-rotate'
+    });
+    setTimeout(() => {
+      this.setState({
+        name: 'circle stop-rotate'
+      })
+    }, 10000);
+  }
+
   render() {
-    const { array, index } = this.state;
+    const { array, index, name } = this.state;
     return (
       <div className='App'>
         <h1>Roleta sups</h1>
-        <Roleta array={array} />
-        <button onClick={this.randomArray}>Escolher aleatório</button>
-        <h2>{array[index]}</h2>
+        <Roleta array={array} circle={name} />
+        <button onClick={this.spinWheel} className='spin-button'>Girar</button>
       </div>
     )
   }

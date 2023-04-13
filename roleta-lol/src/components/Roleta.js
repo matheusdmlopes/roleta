@@ -1,17 +1,29 @@
 import React, { Component } from "react";
+import '../Roleta.css'
 
 class Roleta extends Component {
 
     render() {
-        const { array } = this.props;
+        const { array, circle } = this.props;
         return (
-            <ul>
-                {
-                    array.map((element, index) => (
-                        <li key={index}>{element}</li>
-                    ))
-                }
-            </ul>
+            <div>
+                <div className="arrow" />
+                <ul className={circle}>
+                    {
+                        array.map((element, index) => (
+                            <li
+                                className='text'
+                                key={index}
+                                style={{
+                                    backgroundColor: 'pink',
+                                }}
+                            >
+                                {element}
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
         )
     }
 }
