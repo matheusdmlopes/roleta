@@ -8,7 +8,7 @@ class App extends Component {
     index: 0,
     name: 'circle'
   }
-
+//
   randomArray = () => {
     const { array } = this.state;
     this.setState({
